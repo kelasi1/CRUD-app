@@ -1,0 +1,181 @@
+{
+  "main-page": {
+    "content": "Main Page"
+  },
+  "nav": {
+    "main-page": "Main page",
+    "zawodnicy": "Fighters",
+    "sztuks": "Arts of fight",
+    "tren": "Training"
+  },
+  "list": {
+    "actions": {
+      "title": "Actions",
+      "details": "Details",
+      "edit": "Edit",
+      "delete": "Delete"
+    }
+  },
+  "form": {
+    "actions": {
+      "return": "Return",
+      "edit": "Edit",
+      "cancel": "Cancel"
+    }
+  },
+  "index": {
+    "page": "Main Page"
+  },
+  "zawodnik": {
+    "fields": {
+      "firstName": "First name",
+      "lastName": "Last name",
+      "email": "Email",
+      "adres": "Adress",
+      "birthtime": "Birthtime",
+      "password": "Password",
+      "list-actions": "list-actions"
+    },
+    "page": {
+      "add": "Add fighter",
+      "edit": "Edit fighter",
+      "details": "Details"
+    },
+    "list": {
+      "title": "Fighters",
+      "addNew": "Add new fighter",
+      "noData": "No fighters in database",
+      "pageTitle": "List of fighters"
+    },
+    "form": {
+      "trenowanie": "History of training",
+      "tren": "History of training",
+      "add": {
+        "pageTitle": "Adding a new zawodnik",
+        "btnLabel": "Add the zawodnik",
+        "confirm": {
+          "header": "Confirmation",
+          "text": "The new employee has been successfully created"
+        }
+      },
+      "edit": {
+        "pageTitle": "Editing an fighter",
+        "btnLabel": "Save changes",
+        "confirm": {
+          "header": "Confirmation",
+          "text": "The employee has been successfully updated"
+        }
+      },
+      "submit": {
+        "btnLabel": "Add fighter"
+      }
+    }
+  },
+  "tren": {
+    "fields": {
+      "Zawodnik": "Fighter",
+      "Sztuka": "Art",
+      "DataOd": "Date from",
+      "DataDo": "Date to",
+      "Oplata": "Payment",
+      "Rabat": "Discount"
+    },
+    "page": {
+      "page": "List of trainings",
+      "add": "Add training",
+      "edit": "Edit training",
+      "details": "Details"
+    },
+    "list": {
+      "title": "trainings",
+      "addNew": "Add new training",
+      "noData": "No fighters in database",
+      "pageTitle": "List of tranings"
+    },
+    "form": {
+      "trenowanie": "History of training",
+      "tren": "History of training",
+      "add": {
+        "pageTitle": "Adding a new training",
+        "btnLabel": "Add the training",
+        "confirm": {
+          "header": "Confirmation",
+          "text": "The new employee has been successfully created"
+        }
+      },
+      "edit": {
+        "pageTitle": "Editing an training",
+        "btnLabel": "Save changes",
+        "confirm": {
+          "header": "Confirmation",
+          "text": "The employee has been successfully updated"
+        }
+      },
+      "submit": {
+        "btnLabel": "add trenowanie"
+      }
+    }
+  },
+  "sztuka": {
+    "fields": {
+      "nazwaSztuki": "Name",
+      "trener": "Trainer",
+      "mistrzSztuki": "Master",
+      "opisSztuki": "Text",
+      "limit": "Limit",
+      "trainer": "sztuka.fields.trainer",
+      "Trainer": "sztuka.fields.Trainer"
+    },
+    "page": {
+      "add": "Add Art",
+      "edit": "Edit Art",
+      "details": "Details"
+    },
+    "list": {
+      "title": "LIst of arts",
+      "addNew": "Add new art",
+      "noData": "No arts in database",
+      "pageTitle": "List of arts"
+    },
+    "edit": {
+      "pageTitle": "Editing an art",
+      "btnLabel": "Save changes",
+      "confirm": {
+        "header": "Confirmation",
+        "text": "The employee has been successfully updated"
+      }
+    },
+    "submit": {
+      "btnLabel": "Add the sztuka"
+    },
+    "form": {
+      "trenowanie": "History of training",
+      "tren": "History of training",
+      "add": {
+        "pageTitle": "Adding a new sztuka",
+        "btnLabel": "Add the sztuka",
+        "confirm": {
+          "header": "Confirmation",
+          "text": "The new employee has been successfully created"
+        }
+      },
+      "submit": {
+        "btnLabel": "Add sztuka"
+      }
+    }
+  },
+  "auth": {
+    "loginError": "Wrong email or password",
+    "fieldRequired": "This field is required",
+    "dateError": "Field should contain date in YYYY-MM-DD format",
+    "dateFutureError": "Date can't be from the future",
+    "formError": "Form contains errors",
+    "lengthError": "Field should contain 2 to 60 chars",
+    "length2Error": "Field should contain 2 to 120 chars",
+    "peselError": "Field should contain 11 digits"
+  },
+  "page": {
+    "add": "Add training",
+    "edit": "Edit training"
+  }
+}

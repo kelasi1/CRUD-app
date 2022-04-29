@@ -1,0 +1,50 @@
+<%- include('../../fragments/header.ejs') %>
+<main>
+    <h2><%=__('zawodnik.list.pageTitle')%></h2>
+    <table class="table-list">
+        <thead>
+        <tr>
+            <th><%= __('zawodnik.fields.firstName') %></th>
+            <th><%= __('zawodnik.fields.lastName') %></th>
+            <th><%= __('zawodnik.fields.adres') %></th>
+            <th><%= __('zawodnik.fields.birthtime') %></th>
+            <th><%= __('zawodnik.fields.email') %></th>
+            <th><%= __('list.actions.title') %></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% for (let zawodnik of zawodnicy) { %>
+            <tr>
+                <td>
+                    <%= zawodnik.firstName %>
+                </td>
+                <td><%= zawodnik.lastName %></td>
+                <td><%= zawodnik.adres %></td>
+                <td><%= zawodnik.birthtime.toISOString().split('T')[0] %></td>
+                <td><%= zawodnik.email %></td>
+                <td>
+                    <ul class="list-actions">
+                        <li>
+                            <a class="list-actions-button-details"
+                               href="/zawodnicy/details/<%= zawodnik._id %>"><%= __('list.actions.details') %></a>
+                        </li>
+                        <li>
+                            <a class="list-actions-button-edit" href="/zawodnicy/edit/<%= zawodnik._id %>
+                                "><%= __('list.actions.edit') %></a>
+                        </li>
+                        <li>
+                            <a class="list-actions-button-delete"
+                               href="/zawodnicy/delete/<%= zawodnik._id %>"><%= __('list.actions.delete') %></a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        <% } %>
+
+        </tbody>
+    </table>
+    <p><a class="button-add" href="/zawodnicy/add"><%= __('zawodnik.list.addNew') %></a></p>
+
+</main>
+<%- include('../../fragments/footer.ejs') %>
+

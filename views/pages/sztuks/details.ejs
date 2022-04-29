@@ -1,0 +1,54 @@
+<%- include('../../fragments/header.ejs') %>
+<main>
+    <h2>Szczegóły sztuki walki</h2>
+    <form class="form">
+        <label for="nazwaSztuki">Nazwa Sztuki: <span class="symbol-required">*</span></label>
+        <input type="text" name="nazwaSztuki" id="nazwaSztuki" value="Boks" disabled/>
+
+        <span id="errorNazwaSztuki"></span>
+        <label for="trener">Trener: <span class="symbol-required">*</span></label>
+        <input type="text" name="trener" id="trener" value="Mike Tyson" disabled/>
+
+        <span id="errorTrener"></span>
+        <label for="mistrzSztuki">Mistrz Sztuki: <span class="symbol-required">*</span></label>
+        <input type="text" name="mistrzSztuki" id="mistrzSztuki" value="Tyson Fury" disabled/>
+
+        <span id="errorMistrz"></span>
+        <label for="opis">Trener: <span class="symbol-required">*</span></label>
+        <input type="text" name="opis" id="opis" value="stójka" disabled/>
+
+        <span id="errorOpis"></span>
+        <label for="limit">Limit: <span class="symbol-required">*</span></label>
+        <input type="number" name="limit" id="limit" value="5" disabled/>
+
+        <span id="errorLimit"></span>
+
+
+    </form>
+
+    <h2>Szczegóły trenowania sztuki walki</h2>
+    <table class="table-list">
+        <thead>
+        <tr>
+            <th>Sztuka walki</th>
+            <th>Przyjety Od</th>
+            <th>Przyjety Do</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Boks</td>
+            <td> 2020-10-12</td>
+            <td>2022-11-22</td>
+        </tr>
+        <tr>
+            <td>BJJ</td>
+            <td> 20220-09-19</td>
+            <td>2020-09-11</td>
+        </tr>
+        </tbody>
+    </table>
+    <p><a href="list.ejs" class="form-button-cancel">Wróć</a></p>
+    <p></p>
+</main>
+<%- include('../../fragments/footer.ejs') %>

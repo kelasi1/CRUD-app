@@ -1,0 +1,177 @@
+{
+	"main-page": {
+		"content": "Strona główna"
+	},
+	"nav": {
+		"main-page": "Strona główna",
+		"zawodnicy": "Zawodnicy",
+		"sztuks": "Sztuki walki",
+		"tren": "Trenowanie"
+	},
+	"list": {
+		"actions": {
+			"title": "Akcje",
+			"details": "Szczegóły",
+			"edit": "Edytuj",
+			"delete": "Usuń"
+		}
+	},
+	"form": {
+		"actions": {
+			"return": "Powrót",
+			"edit": "Edytuj",
+			"cancel": "Anuluj"
+		}
+	},
+	"index": {
+		"page": "Strona glowna"
+	},
+	"zawodnik": {
+		"page": {
+			"add": "Dodaj zawodnika",
+			"edit": "Edytuj zawodnika",
+			"details": "Szczegoly"
+		},
+		"fields": {
+			"firstName": "Imię",
+			"lastName": "Nazwisko",
+			"email": "Email",
+			"adres": "Adres",
+			"birthtime": "Data urodzenia",
+			"password": "Haslo"
+		},
+		"list": {
+			"title": "Pracownicy",
+			"addNew": "Dodaj nowego zawodnika",
+			"noData": "Brak zawodnikow w bazie",
+			"pageTitle": "Lista zawodnikow"
+		},
+		"form": {
+			"trenowanie": "Historia trenowania",
+			"add": {
+				"pageTitle": "Dodawanie zawodnika",
+				"btnLabel": "Dodaj zawodnika",
+				"confirm": {
+					"header": "Potwierdzenie operacji",
+					"text": "Pomyślnie dodano zawodnika"
+				}
+			},
+			"edit": {
+				"pageTitle": "Edycja zawodnika",
+				"btnLabel": "Zapisz zmiany",
+				"confirm": {
+					"header": "Potwierdzenie operacji",
+					"text": "Pomyślnie zaktualizowano zawodnika"
+				}
+			}
+		}
+	},
+	"tren": {
+		"fields": {
+			"Zawodnik": "Zawodnik",
+			"Sztuka": "Sztuka",
+			"DataOd": "Data od",
+			"DataDo": "Data do",
+			"Oplata": "Oplata",
+			"Rabat": "Rabat"
+		},
+		"page": {
+			"page": "Lista trenowania",
+			"add": "Dodaj trenowanie",
+			"edit": "Edycja trenowania",
+			"details": "szczegoly trenowania"
+		},
+		"list": {
+			"title": "Lista trenowania",
+			"addNew": "Dodaj trenowanie",
+			"noData": "Brak trenowania w bazie",
+			"pageTitle": "Lista trenowania"
+		},
+		"edit": {
+			"pageTitle": "Edytowanie trenowania",
+			"btnLabel": "Save changes",
+			"confirm": {
+				"header": "Confirmation",
+				"text": "The employee has been successfully updated"
+			}
+		},
+		"submit": {
+			"btnLabel": "Dodaj trenowanie"
+		},
+		"form": {
+			"trenowanie": "Historia trenowania",
+			"tren": "Historia trenowania",
+			"add": {
+				"pageTitle": "Dodaj trenowanie",
+				"btnLabel": "Dodaj trenowanie",
+				"confirm": {
+					"header": "Confirmation",
+					"text": "The new employee has been successfully created"
+				}
+			},
+			"submit": {
+				"btnLabel": "Dodaj trenowanie"
+			}
+		}
+	},
+	"sztuka": {
+		"page": {
+			"add": "Dodaj sztuke",
+			"edit": "Edytuj sztuke",
+			"details": "Szczegoly"
+		},
+		"fields": {
+			"nazwaSztuki": "Nazwa",
+			"trener": "Trener",
+			"mistrzSztuki": "Mistrz",
+			"opisSztuki": "Opis",
+			"limit": "Limit"
+		},
+		"list": {
+			"title": "Lista sztuk",
+			"addNew": "Dodaj sztuke",
+			"noData": "Brak sztuk w bazie",
+			"pageTitle": "Lisa sztuk"
+		},
+		"edit": {
+			"pageTitle": "Edytowanie sztuki",
+			"btnLabel": "Save changes",
+			"confirm": {
+				"header": "Confirmation",
+				"text": "The employee has been successfully updated"
+			}
+		},
+		"submit": {
+			"btnLabel": "Dodaj sztuke"
+		},
+		"form": {
+			"trenowanie": "Historia trenowania",
+			"tren": "Historia trenowania",
+			"add": {
+				"pageTitle": "Dodaj sztuke",
+				"btnLabel": "Dodaj sztuke",
+				"confirm": {
+					"header": "Confirmation",
+					"text": "The new employee has been successfully created"
+				}
+			},
+			"submit": {
+				"btnLabel": "Dodaj sztuke"
+			}
+		}
+	},
+	"auth": {
+		"loginError": "zly email lub haslo",
+		"fieldRequired": "Pole wymagane",
+		"dateError": "Zły format daty",
+		"dateFutureError": "Data nie moze byc z przyszlosci",
+		"formError": "Formularz zawiera bledy",
+		"lengthError": " 2 to 60 znakow",
+		"length2Error": "2 to 120 znakow"
+
+	},
+	"page": {
+		"add": "Dodaj trenowanie",
+		"edit": "Edytuj trenowanie"
+	}
+}

@@ -1,0 +1,44 @@
+<%- include('../../fragments/header.ejs') %>
+<main>
+    <h2><%=__('sztuka.list.pageTitle')%></h2>
+    <table class="table-list">
+        <thead>
+        <tr>
+            <th><%=__('sztuka.fields.nazwaSztuki')%></th>
+            <th><%=__('sztuka.fields.trener')%></th>
+            <th><%=__('sztuka.fields.mistrzSztuki')%></th>
+            <th><%=__('sztuka.fields.opisSztuki')%></th>
+            <th><%=__('sztuka.fields.limit')%></th>
+            <th><%=__('list.actions.title')%></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% for (let sztuka of sztuks) { %>
+        <tr>
+            <td><%= sztuka.nazwaSztuki %></td>
+            <td><%= sztuka.trener  %></td>
+            <td><%= sztuka.mistrzSztuki  %></td>
+            <td><%= sztuka.opisSztuki  %></td>
+            <td><%= sztuka.limit %></td>
+
+<td>
+                <ul class="list-actions">
+                    <li>
+                        <a class="list-actions-button-details" href="/sztuks/details/<%=sztuka._id%>"><%= __('list.actions.details') %></a>
+                    </li>
+                    <li>
+                        <a class="list-actions-button-edit" href="/sztuks/edit/<%=sztuka._id%>"><%= __('list.actions.edit') %></a>
+                    </li>
+                    <li>
+                        <a class="list-actions-button-delete" href="/sztuks/delete/<%=sztuka._id%>"><%= __('list.actions.delete') %></a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+            <% } %>
+        </tbody>
+    </table>
+    <p><a class="button-add" href="/sztuks/add"><%= __('sztuka.list.addNew') %></a></p>
+
+</main>
+<%- include('../../fragments/footer.ejs') %>

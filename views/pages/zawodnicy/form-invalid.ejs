@@ -1,0 +1,40 @@
+﻿<%- include('../../fragments/header.ejs') %>
+<main>
+    <h2></h2>
+    <form class="form">
+        <label for="firstName">Imie: <span class="symbol-required">*</span> </label>
+        <input type="text" name="firstName" id="firstName" placeholder="2-60 znakow" value="<%=zawodnicy.firstName%>"
+         <%=(formMode=='showDetails') ? 'disabled' : '' %>/>
+
+        <span id="errorFirstName">Pole jest wymagane</span>
+
+        <label for="nazwisko">Nazwisko: <span class="symbol-required">*</span></label>
+        <input type="text" name="lastName" id="lastName" placeholder="2-60 znakow" value="<%=zawodnicy.lastname%>">
+
+        <span id="errorLastName">Pole jest wymagane</span>
+
+        <label for="email">Email: <span class="symbol-required">*</span></label>
+        <input type="email" name="email" id="email" placeholder="2-60 znakow" value="<%=zawodnicy.email%>">
+
+        <span id="errorEmail">Pole jest wymagane</span>
+
+        <label for="birthday">Data urodzenia: <span class="symbol-required">*</span></label>
+        <input type="date" name="birthday" id="birthday" placeholder="2-60 znakow" value="<%=zawodnicy.birthday>
+
+        <span id="errorDataUrodzenia">Pole jest wymagane</span>
+
+        <label for="adres">Adres: *</label>
+        <input type="text" name="adres" id="adres" class="error-input" required/>
+
+        <span id="errorAdres">Pole jest wymagane</span>
+
+        <div class="form-buttons">
+
+            <input class="form-button-submit" type="submit" value="Dodaj"/>
+            <a class="form-button-cancel" href="../../pages/zawodnicy/list.html">Anuluj</a>
+        </div>
+
+    </form>
+    <p></p>
+<%- include('../../fragments/footer.ejs') %>
+

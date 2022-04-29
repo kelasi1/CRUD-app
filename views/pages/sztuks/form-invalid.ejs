@@ -1,0 +1,38 @@
+﻿<%- include('../../fragments/header.ejs') %>
+<main>
+    <h2>Nowa Sztuka Walki</h2>
+    <form class="form">
+        <label for="nazwaSztuki">Nazwa Sztuki: <span class="symbol-required">*</span></label>
+        <input type="text" name="nazwaSztuki" id="nazwaSztuki" required/>
+
+        <span id="errorNazwaSztuki" class="errors-text"
+        >Pole jest wymagane</span>
+        <label for="trener">Trener: <span class="symbol-required">*</span></label>
+        <input type="text" name="trener" id="trener" required/>
+
+        <span id="errorTrener" class="errors-text"
+        >Pole jest wymagane</span>
+        <label for="mistrzSztuki">Mistrz Sztuki: <span class="symbol-required">*</span></label>
+        <input type="text" name="mistrzSztuki" id="mistrzSztuki"/>
+
+        <span id="errorMistrz" class="errors-text"
+        >Pole jest wymagane</span>
+        <label for="opis">Trener: <span class="symbol-required">*</span></label>
+        <input type="text" name="opis" id="opis"/>
+
+        <span id="errorOpis" class="errors-text"
+        >Pole jest wymagane</span>
+        <label for="limit">Limit <span class="symbol-required">*</span></label>
+        <input type="number" name="limit" id="limit"/>
+        <span id="errorLimit" class="errors-text"
+        >Pole jest wymagane</span>
+        </div>
+        <input class="form-button-submit" type="submit" value="submit"/>
+        <a class="form-button-cancel" href="../../pages/sztukiwalki/list.html">Anuluj</a>
+
+        </div>
+
+    </form>
+    <p></p>
+</main>
+<%- include('../../fragments/footer.ejs') %>

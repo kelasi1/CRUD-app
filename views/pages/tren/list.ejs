@@ -1,0 +1,47 @@
+<%- include('../../fragments/header.ejs') %>
+<main>
+    <h2><%=__('tren.page.page')%></h2>
+    <table class="table-list">
+        <thead>
+        <tr>
+
+            <th><%=__('tren.fields.DataOd')%></th>
+            <th><%=__('tren.fields.DataDo')%></th>
+            <th><%=__('tren.fields.Oplata')%></th>
+            <th><%=__('tren.fields.Rabat')%></th>
+             <th><%=__('list.actions.title')%></th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <% for (let tren of trens) { %>
+        <tr>
+            <td >
+             <%=tren.dataPrzyjeciaOd.toISOString().split('T')[0] %>
+            </td>
+            <td><%=tren.dataPrzyjeciaDo.toISOString().split('T')[0]  %></td>
+            <td><%=tren.oplata   %></td>
+            <td><%= tren.rabat  %></td>
+
+            <td>
+                <ul class="list-actions">
+                    <li>
+                        <a class="list-actions-button-details"
+                           href="/tren/details/<%=tren._id%>"><%= __('list.actions.details') %></a>
+                    </li>
+                    <li>
+                        <a class="list-actions-button-edit" href="/tren/edit/<%=tren._id%>"><%= __('list.actions.edit') %></a>
+                    </li>
+                    <li>
+                        <a class="list-actions-button-delete" href="/tren/delete/<%tren._id%>"><%= __('list.actions.delete') %></a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    <% } %>
+        </tbody>
+    </table>
+    <p><a class="button-add" href="/tren/add"><%= __('tren.list.addNew') %></a></p>
+
+</main>
+<%- include('../../fragments/footer.ejs') %>

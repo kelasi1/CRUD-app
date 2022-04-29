@@ -1,0 +1,41 @@
+<%- include('../../fragments/header.ejs') %>
+<main>
+    <h2>Edycja Sztuki Walki Zawodnika</h2>
+    <form class="form">
+        <label for="dataPRzyjeciaOd">dataPRzyjeciaOd: <span class="symbol-required">*</span> </label>
+        <input type="date" name="dataPRzyjeciaOd" id="dataPRzyjeciaOd" value="2020-10-12" disabled/>
+
+        <span id="errordataPRzyjeciaOd"></span>
+
+        <label for="dataPrzyjeciaDo">Data Przyjecia Do: <span class="symbol-required">*</span></label>
+        <input type="date" name="dataPrzyjeciaDo" id="dataPrzyjeciaDo" value="2022-11-22" disabled/>
+
+        <span id="errordataPrzyjeciaDo"></span>
+
+
+
+
+
+        <label for="zawodnik">Zawodnik: <span class="symbol-required">*</span></label>
+        <select name="zawodnik" id="zawodnik" disabled>
+            <option>-Wybierz zawodnika-</option>
+            <option value="1" selected>Jan Kowalski</option>
+            <option value="2">Adam Nowak</option>
+        </select>
+        <span id="errorZawodnik"></span>
+        <label for="sztukaWalki">Sztuka walki: <span class="symbol-required">*</span></label>
+        <select name="sztukaWalki" id="sztukaWalki" disabled>
+            <option>-Wybierz sztuke walki-</option>
+            <option value="1" selected>boks</option>
+            <option value="2">BJJ</option>
+        </select>
+        <span id="errorSztukaWalki"></span>
+        <div class="form-buttons">
+
+            <a class="form-button-cancel" href="list.ejs">Wróć</a>
+        </div>
+
+    </form>
+    <p></p>
+</main>
+<%- include('../../fragments/footer.ejs') %>

@@ -1,0 +1,33 @@
+﻿<%- include('../../fragments/header.ejs') %>
+<main>
+    <h2>Edycja Sztuki Walki</h2>
+    <form class="form">
+        <label for="nazwaSztuki">Nazwa Sztuki: <span class="symbol-required">*</span></label>
+        <input type="text" name="nazwaSztuki" id="nazwaSztuki" value="Boks" required/>
+
+        <span id="errorNazwaSztuki"></span>
+        <label for="trener">Trener: <span class="symbol-required">*</span></label>
+        <input type="text" name="trener" id="trener" value="Mike Tyson" required/>
+
+        <span id="errorTrener"></span>
+        <label for="mistrzSztuki">Mistrz Sztuki: <span class="symbol-required">*</span></label>
+        <input type="text" name="mistrzSztuki" id="mistrzSztuki" value="Tyson Fury" />
+
+        <span id="errorMistrz"></span>
+        <label for="opis">Trener: <span class="symbol-required">*</span></label>
+        <input type="text" name="opis" id="opis" value="stójka" />
+
+        <span id="errorOpis"></span>
+        <label for="limit">Limit: <span class="symbol-required">*</span></label>
+        <input type="number" name="limit" id="limit" value="5" required/>
+
+        <span id="errorLimit"></span>
+        <div class="form-buttons">
+            <input class="form-button-submit" type="submit" value="submit"/>
+            <a class="form-button-cancel" href="../../pages/sztukiwalki/list.html">Anuluj</a>
+
+        </div>
+    </form>
+    <p></p>
+</main>
+<%- include('../../fragments/footer.ejs') %>

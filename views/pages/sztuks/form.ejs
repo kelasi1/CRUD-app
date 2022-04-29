@@ -1,0 +1,125 @@
+﻿<%- include('../../fragments/header.ejs') %>
+<main>
+    <script type="application/javascript" src="/js/validationSztuka.js"></script>
+
+    <form class="form" method="post" action="<%= formAction %>" novalidate onsubmit="return validateFormSztuka">
+
+        <% if (formMode == 'edit'){ %>
+            <h2><%= __('sztuka.page.edit') %></h2>
+        <% } %>
+        <% if (formMode == 'createNew'){ %>
+            <h2><%= __('sztuka.page.add') %></h2>
+        <% } %>
+            <% if (formMode == 'showDetails'){ %>
+                <h2><%= __('sztuka.page.details') %></h2>
+            <% } %>
+
+        <input type="hidden" name="_id" value="<%= sztuka._id %>">
+
+
+        <label for="nazwaSztuki"><%=__('sztuka.fields.nazwaSztuki')%>:<abbr title="required" aria-label="required">*</abbr></label>
+        <input type="text" name="nazwaSztuki" id="nazwaSztuki" placeholder="3-60 znakow"
+               value="<%= sztuka.nazwaSztuki %>"
+               class="<%= validationErrors.find(e => e.path.includes('nazwaSztuki')) ? 'error-input' : '' %>"
+                <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+
+        <span id="errorNazwaSztuki" class="errors-text">
+            <% if (validationErrors.find(e => e.path.includes('nazwaSztuki'))) { %>
+                <%= validationErrors.find(e => e.path.includes('nazwaSztuki')).message %>
+            <% } %>
+        </span>
+
+        <label for="trener"><%=__('sztuka.fields.trener')%>:<abbr title="required" aria-label="required">*</abbr></label>
+        <input type="text" name="trener" id="trener" placeholder="3-60 znakow" value="<%= sztuka.trener %>"
+               class="<%= validationErrors.find(e => e.path.includes('trener')) ? 'error-input' : '' %>" <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+        <span id="errorTrener" class="errors-text">
+            <% if (validationErrors.find(e => e.path.includes('trener'))) { %>
+                <%= validationErrors.find(e => e.path.includes('trener')).message %>
+            <% } %>
+        </span>
+
+        <label for="mistrzSztuki"><%=__('sztuka.fields.mistrzSztuki')%>: </label>
+        <input type="text" name="mistrzSztuki" id="mistrzSztuki" placeholder="1-100 znakow"
+               value="<%= sztuka.mistrzSztuki %>"
+               class="<%= validationErrors.find(e => e.path.includes('mistrzSztuki')) ? 'error-input' : '' %>" <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+        <span id="errorMistrzSztuki" class="errors-text">
+            <% if (validationErrors.find(e => e.path.includes('mistrzSztuki'))) { %>
+                <%= validationErrors.find(e => e.path.includes('mistrzSztuki')).message %>
+            <% } %>
+        </span>
+
+        <label for="opisSztuki">Opis:</label>
+        <input type="text" name=<%=__('sztuka.fields.opisSztuki')%> id="opisSztuki" placeholder="1-100 znakow" value="<%= sztuka.opisSztuki %>"
+               class="<%= validationErrors.find(e => e.path.includes('opisSztuki')) ? 'error-input' : '' %>" <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+        <span id="errorOpis" class="errors-text">
+            <% if (validationErrors.find(e => e.path.includes('opisSztuki'))) { %>
+                <%= validationErrors.find(e => e.path.includes('opisSztuki')).message %>
+            <% } %>
+        </span>
+
+
+        <label for="limit"><%=__('sztuka.fields.limit')%>:<abbr title="required" aria-label="required">*</abbr></label>
+        <input type="number" name="limit" id="limit" placeholder="np. 30"
+               value="<%= sztuka.limit %>"
+               class="<%= validationErrors.find(e => e.path.includes('limit')) ? 'error-input' : '' %>" <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+        <span id="errorLimit" class="errors-text">
+            <% if (validationErrors.find(e => e.path.includes('limit'))) { %>
+                <%= validationErrors.find(e => e.path.includes('limit')).message %>
+            <% } %>
+        </span>
+
+        <% if (formMode == 'showDetails') { %>
+            <div>
+                <a class="list-actions-button-edit" href="/sztuks/edit/<%= sztuka._id %>"><%=__('form.actions.edit')%></a>
+            </div>
+        <% } %>
+
+        <div>
+            <p id="errorsSummary" class="errors-text"></p>
+            <% if (formMode == 'edit') { %>
+                <input class="form-button-submit" type="submit" value="<%= __('sztuka.page.edit') %>"/>
+                <a class="form-button-cancel" href="/sztuks"><%=__('form.actions.return')%></a>
+            <% } else { %>
+            <% if (formMode != 'showDetails') { %>
+                <input class="form-button-submit" type="submit" value="<%= __('sztuka.page.add') %>"/>
+                <a class="form-button-cancel" href="/sztuks"><%=__('form.actions.return')%></a>
+            <% } else { %>
+                <a class="form-button-cancel" href="/sztuks"><%=__('form.actions.return')%></a>
+            <% }} %>
+        </div>
+
+    </form>
+
+    <% if (formMode == 'showDetails' || formMode == 'edit') { %>
+        <h2><%= __('zawodnik.form.trenowanie') %></h2>
+
+        <table class="table-list">
+            <thead>
+            <tr>
+                <th><%=__('tren.fields.Sztuka')%></th>
+                <th><%=__('tren.fields.Zawodnik')%></th>
+
+                <th><%=__('tren.fields.DataOd')%></th>
+                <th><%=__('tren.fields.DataDo')%></th>
+                <th><%=__('tren.fields.Oplata')%></th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <% for (let b of sztuka.trens) { %>
+                <tr>
+                    <td><%= sztuka.nazwaSztuki %></td>
+                    <td><a href="/zawodnicy/details/<%= b.zawodnik._id %>"><%= b.zawodnik.firstName %></a>
+                    </td>
+
+                    <td><%= b.dataPrzyjeciaOd.toISOString().split('T')[0] %></td>
+                    <td><%= b.dataPrzyjeciaDo.toISOString().split('T')[0] %></td>
+                    <td><%= b.oplata %></td>
+                </tr>
+            <% } %>
+            </tbody>
+        </table>
+    <% } %>
+
+</main>
+<%- include('../../fragments/footer.ejs') %>

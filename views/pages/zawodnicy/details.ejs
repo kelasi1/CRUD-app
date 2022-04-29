@@ -1,0 +1,54 @@
+<%- include('../../fragments/header.ejs') %>
+<main>
+    <h2>Szczegóły zawodnika</h2>
+    <form class="form">
+        <label for="imie">Imie: <span class="symbol-required">*</span></label>
+        <input type="text" name="imie" id="imie" value="Jan" disabled/>
+
+        <span id="errorFirstName" class="errors-text"></span>
+
+        <label for="nazwisko">Nazwisko: <span class="symbol-required">*</span></label>
+        <input type="text" name="nazwisko" id="nazwisko" value="Kowalski" disabled/>
+
+        <span id="errorLastName" class="errors-text"></span>
+
+        <label for="email">Email: <span class="symbol-required">*</span></label>
+        <input type="email" name="email" id="email" value="jan@op.pl" disabled/>
+
+        <span id="errorEmail" class="errors-text"></span>
+
+        <label for="dataUrodzenia">Data urodzenia: <span class="symbol-required">*</span></label>
+        <input type="date" name="dataUrodzenia" id="dataUrodzenia" value="22-09-1990" disabled/>
+
+        <span id="errorDataUrodzenia" class="errors-text"></span>
+
+        <label for="adres">Adres: *</label>
+        <input type="text" name="adres" id="adres" value="Warszawa" disabled/>
+
+        <span id="errorAdres" class="errors-text"></span>
+    </form>
+    <h2>Szczegóły trenowania zawodników</h2>
+    <table class="table-list">
+        <thead>
+        <tr>
+            <th>Zawodnik</th>
+            <th>Przyjety Od</th>
+            <th>Przyjety Do</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Jan Kowalski</td>
+            <td> 12.10.2020</td>
+            <td>22.11.2022</td>
+        </tr>
+        <tr>
+            <td>Adam Nowak</td>
+            <td> 11.09.20220</td>
+            <td>11.09.2022</td>
+        </tr>
+        </tbody>
+    </table>
+    <p><a href="list.ejs" class="form-button-cancel">Wróć</a></p>
+</main>
+<%- include('../../fragments/footer.ejs') %>

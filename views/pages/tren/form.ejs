@@ -1,0 +1,131 @@
+﻿<%- include('../../fragments/header.ejs') %>
+<main>
+    <script type="application/javascript" src="/js/validationSztukaZawodnikaForm.js" ></script>
+
+    <form class="form" method="post" action="<%= formAction %>" novalidate onsubmit="">
+
+        <input type="hidden" name="_id" value="<%= tren._id %>">
+
+        <% if (formMode == 'edit'){ %>
+            <h2><%= __('tren.page.edit') %></h2>
+        <% } %>
+        <% if (formMode == 'createNew'){ %>
+            <h2><%= __('tren.page.add') %></h2>
+        <% } %>
+        <% if (formMode == 'showDetails'){ %>
+            <h2><%= __('tren.page.details') %></h2>
+        <% } %>
+
+        <label for="zawodnikData"><%= __('tren.fields.Zawodnik') %>:<abbr title="required" aria-label="required">*</abbr></label>
+        <select id="zawodnik_id" name="zawodnik_id" required
+                class="<%= validationErrors.find(e => e.path.includes('zawodnik_id')) ? 'error-input' : '' %>" <%= (formMode == 'showDetails') ? 'disabled' : '' %> >
+            <% if (formMode != 'edit' ){ %>
+                <option value="" selected="selected">--Wybierz Zawodnika--</option>
+            <% } %>
+
+        <% for (let i = 0; i < allZawodnicy.length; i++) {let zawodnik = allZawodnicy[i]; %>
+        <option value="<%= zawodnik._id %>" label="<%= zawodnik.firstName + ' ' + zawodnik.lastName %>"
+                <%= (tren._id && zawodnik._id.toString() == tren.zawodnik._id.toString()) ? 'selected' : '' %>>
+        </option>
+        <% } %>
+        </select>
+        <span id="errorZawodnik" class="errors-text">
+            <% if (validationErrors.find(e => e.path.includes('zawodnik_id'))) { %>
+                <%= validationErrors.find(e => e.path.includes('zawodnik_id')).message %>
+            <% } %>
+        </span>
+
+        <label for="sztukaData"><%= __('tren.fields.Sztuka') %>:<abbr title="required"
+                                                                      aria-label="required">*</abbr></label>
+        <select id="sztuka_id" name="sztuka_id" required
+                class="<%= validationErrors.find(e => e.path.includes('sztuka_id')) ? 'error-input' : '' %>" <%= (formMode == 'showDetails') ? 'disabled' : '' %> >
+            <% if (formMode != 'edit' ){ %>
+                <option value="" selected="selected">--Wybierz Sztuke--</option>
+            <% } %>
+
+        <% for (let i = 0; i < allSztuki.length; i++) {let sztuka = allSztuki[i]; %>
+        <option value="<%= sztuka._id %>" label="<%= sztuka.nazwaSztuki %>"
+                <%= (tren._id && sztuka._id.toString() == tren.sztuka._id.toString()) ? 'selected' : '' %>></option>
+        <% } %>
+        </select>
+        <span id="errorSztuka" class="errors-text">
+            <% if (validationErrors.find(e => e.path.includes('sztuka_id'))) { %>
+                <%= validationErrors.find(e => e.path.includes('sztuka_id')).message %>
+            <% } %>
+        </span>
+
+
+        <label for="dataPrzyjeciaOd"><%= __('tren.fields.DataOd') %>:<abbr title="required"
+                                                                           aria-label="required">*</abbr></label>
+        <input type="date" name="dataPrzyjeciaOd" id="dataPrzyjeciaOd"
+               value="<%= (formMode == 'createNew') ? '' : tren.dataPrzyjeciaOd.toISOString().split('T')[0] %>"
+               class="<%= validationErrors.find(e => e.path.includes('dataPrzyjeciaOd')) ? 'error-input' : '' %>"
+                <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
+        <span id="errorDataPrzyjeciaOd" class="errors-text">
+            <% if (validationErrors.find(e => e.path.includes('dataPrzyjeciaOd'))) { %>
+                <%= validationErrors.find(e => e.path.includes('dataPrzyjeciaOd')).message %>
+            <% } %>
+        </span>
+
+        <label for="dataPrzyjeciaDo"><%= __('tren.fields.DataDo') %>: <abbr title="required"
+                                                                            aria-label="required">*</abbr></label>
+        <input type="date" name="dataPrzyjeciaDo" id="dataPrzyjeciaDo"
+               value="<%= (formMode == 'createNew') ? '' : tren.dataPrzyjeciaDo.toISOString().split('T')[0] %>"
+               class="<%= validationErrors.find(e => e.path.includes('dataPrzyjeciaDo')) ? 'error-input' : '' %>"
+                <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
+        <span id="errorDataPrzyjeciaDo" class="errors-text">
+            <% if (validationErrors.find(e => e.path.includes('dataPrzyjeciaDo'))) { %>
+                <%= validationErrors.find(e => e.path.includes('dataPrzyjeciaDo')).message %>
+            <% } %>
+        </span>
+
+
+        <label for="oplata"><%= __('tren.fields.Oplata') %>:<abbr title="required"
+                                                                  aria-label="required">*</abbr></label>
+        <input type="number" name="oplata" id="oplata" placeholder="mdz 1-100" value="<%= tren.oplata %>"
+               class="<%= validationErrors.find(e => e.path.includes('oplata')) ? 'error-input' : '' %>"
+                <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
+        <span id="errorOplata" class="errors-text">
+            <% if (validationErrors.find(e => e.path.includes('oplata'))) { %>
+                <%= validationErrors.find(e => e.path.includes('oplata')).message %>
+            <% } %>
+        </span>
+
+
+        <label for="rabat"><%= __('tren.fields.Rabat') %>:<abbr title="required" aria-label="required">*</abbr></label>
+        <input type="number" name="rabat" id="rabat" placeholder="np. 30" value="<%= tren.rabat %>"
+               class="<%= validationErrors.find(e => e.path.includes('rabat')) ? 'error-input' : '' %>"
+                <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
+        <span id="errorRabat" class="errors-text">
+            <% if (validationErrors.find(e => e.path.includes('rabat'))) { %>
+                <%= validationErrors.find(e => e.path.includes('rabat')).message %>
+            <% } %>
+        </span>
+
+        <% if (formMode == 'showDetails') { %>
+
+            <div>
+                <a class="list-actions-button-edit" href="/tren/edit/<%= tren._id %>"><%= __('form.actions.edit') %></a>
+            </div>
+        <% } %>
+
+        <div>
+            <p id="errorsSummary" class="errors-text"></p>
+            <% if (formMode == 'showDetails') { %>
+
+                <a class="form-button-cancel" href="/tren"><%= __('form.actions.return') %></a>
+            <% } else { %>
+                <% if (formMode == 'createNew') { %>
+                    <input class="form-button-submit" type="submit" value="<%= __('page.add') %>"/>
+                    <a class="form-button-cancel" href="/tren"><%= __('form.actions.return') %></a>
+                <% } else { %>
+                    <input class="form-button-submit" type="submit" value="<%= __('page.edit') %>"/>
+                    <a class="form-button-cancel" href="/tren"><%= __('form.actions.return') %></a>
+            <% }} %>
+        </div>
+
+
+    </form>
+
+</main>
+<%- include('../../fragments/footer.ejs') %>

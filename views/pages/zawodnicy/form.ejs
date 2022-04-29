@@ -1,0 +1,169 @@
+﻿<%- include('../../fragments/header.ejs') %>
+<main>
+    <script type="application/javascript" src="/js/validationZawodnikForm.js"></script>
+
+    <form class="form" method="post" action="<%= formAction %>" novalidate onsubmit="return validateForm();">
+
+        <input type="hidden" name="_id" value="<%= zawodnik._id %>">
+
+        <% if (formMode == 'edit'){ %>
+            <h2><%= __('zawodnik.page.edit') %></h2>
+        <% } %>
+        <% if (formMode == 'createNew'){ %>
+            <h2><%= __('zawodnik.page.add') %></h2>
+        <% } %>
+        <% if (formMode == 'showDetails'){ %>
+            <h2><%= __('zawodnik.page.details') %></h2>
+        <% } %>
+        <div style="display: none">
+            <span id="errorMessage-required"><%= __('auth.fieldRequired') %></span>
+        </div>
+        <div style="display: none">
+            <span id="errorMessage-formError"><%= __('auth.formError') %></span>
+        </div>
+
+        <label for="firstName"><%= __('zawodnik.fields.firstName') %> :<abbr title="required"
+                                                                             aria-label="required">*</abbr></label>
+        <input type="text" name="firstName" id="firstName" placeholder="2-60 znakow"
+               value="<%= zawodnik.firstName %>"
+               class="<%= validationErrors.find(e => e.path.includes('firstName')) ? 'error-input' : '' %>"<%= (formMode == 'showDetails') ? 'disabled' : '' %> />
+        <span id="errorFirstName" class="errors-text">
+            <% if (validationErrors.find(e => e.path.includes('firstName'))) { %>
+                <% if(validationErrors.find(e => e.path.includes('firstName')).message.toString() === "Pole jest wymagane") { %>
+                    <%= __('auth.fieldRequired') %>
+                <% }else{ %>
+                    <%= __('auth.lengthError') %>
+                <% } %>
+            <% } %>
+        </span>
+
+        <label for="lastName"><%= __('zawodnik.fields.lastName') %> : <abbr title="required"
+                                                                            aria-label="required">*</abbr></label>
+        <input type="text" name="lastName" id="lastName" placeholder="2-60 znakow"
+               value="<%= zawodnik.lastName %>"
+               class="<%= validationErrors.find(e => e.path.includes('lastName')) ? 'error-input' : '' %>"<%= (formMode == 'showDetails') ? 'disabled' : '' %> />
+        <span id="errorLastName" class="errors-text">
+            <% if (validationErrors.find(e => e.path.includes('lastName'))) { %>
+                <% if(validationErrors.find(e => e.path.includes('lastName')).message.toString() === "Pole jest wymagane") { %>
+                    <%= __('auth.fieldRequired') %>
+                <% }else{ %>
+                    <%= __('auth.lengthError') %>
+                <% } %>
+            <% } %>
+        </span>
+
+        <label for="email"><%= __('zawodnik.fields.email') %> : <abbr title="required"
+                                                                      aria-label="required">*</abbr></label>
+        <input type="email" name="email" id="email" placeholder="2-60 znakow"
+               value="<%= zawodnik.email %>" class="<%= validationErrors.find(e =>
+                e.path.includes('email')) ? 'error-input' : '' %>"
+                <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
+        <span id="errorEmail" class="errors-text">
+            <% if (validationErrors.find(e => e.path.includes('email'))) { %>
+                <% if( validationErrors.find(e => e.path.includes('email')).message.toString() === "Pole jest wymagane") { %>
+                    <%= __('auth.fieldRequired') %>
+                <% } %>
+            <% } %>
+        </span>
+
+
+        <label for="birthtime"><%= __('zawodnik.fields.birthtime') %> : <abbr title="required"
+                                                                              aria-label="required">*</abbr></label>
+        <input type="date" name="birthtime" id="birthtime"
+               value="<%= (formMode == 'createNew') ? '' : zawodnik.birthtime.toISOString().split('T')[0] %>"
+               class="<%= validationErrors.find(e => e.path.includes('birthtime')) ? 'error-input' : '' %>"
+                <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
+        <span id="errorBirthtime" class="errors-text">
+            <% if (validationErrors.find(e => e.path.includes('birthtime'))) { %>
+                <% if( validationErrors.find(e => e.path.includes('birthtime')).message.toString() === "Pole jest wymagane") { %>
+                    <%= __('auth.fieldRequired') %>
+                <% }else{ %>
+                    <%= __('auth.lengthError') %>
+                <% } %>
+            <% } %>
+        </span>
+
+
+        <label for="adres"><%= __('zawodnik.fields.adres') %> :<abbr title="required"
+                                                                     aria-label="required">*</abbr></label>
+        <input type="text" name="adres" id="adres" placeholder="2-60 znakow"
+               value="<%= zawodnik.adres %>" class="<%= validationErrors.find(e =>
+                e.path.includes('adres')) ? 'error-input' : '' %>"
+                <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
+        <span id="errorAdres" class="errors-text">
+            <% if (validationErrors.find(e => e.path.includes('adres'))) { %>
+                <% if( validationErrors.find(e => e.path.includes('adres')).message.message.toString() === "Pole jest wymagane") { %>
+                    <%= __('auth.fieldRequired') %>
+                <% }else{ %>
+                    <%= __('auth.lengthError') %>
+                <% } %>
+            <% } %>
+        </span>
+        <% if (formMode == 'createNew') { %>
+            <label for="password"><%= __('zawodnik.fields.password') %>: <span class="symbol-required">*</span></label>
+            <input type="password" name="password" id="password" placeholder="******"
+                   value="<%= zawodnik.password %>" <%= (formMode == 'showDetails' || formMode == 'edit') ? 'disabled' : '' %>
+                   class="<%= validationErrors.find(e => e.path.includes('password')) ? 'error-input' : '' %>">
+            <span id="errorPassword" class="errors-text">
+                <% if (validationErrors.find(e => e.path.includes('password'))) { %>
+                    <%= __('auth.fieldRequired') %>
+                <% } %>
+            </span>
+        <% } %>
+
+        <% if (formMode == 'showDetails') { %>
+            <div>
+                <a class="list-actions-button-edit"
+                   href="/zawodnicy/edit/<%= zawodnik._id %>"><%= __('form.actions.edit') %></a>
+            </div>
+        <% } %>
+        <div>
+            <p id="errorsSummary" class="errors-text"></p>
+            <% if (formMode == 'edit') { %>
+                <input class="form-button-submit" type="submit" value="<%= __('zawodnik.page.edit') %>"/>
+                <a class="form-button-cancel" href="/zawodnicy"><%= __('form.actions.cancel') %></a>
+            <% } else { %>
+                <% if (formMode == "createNew") { %>
+                    <input class="form-button-submit" type="submit" value="<%= __('zawodnik.page.add') %>"/>
+                    <a class="form-button-cancel" href="/zawodnicy"><%= __('form.actions.cancel') %></a>
+                <% } else { %>
+                    <a class="form-button-cancel" href="/zawodnicy"><%= __('form.actions.return') %></a>
+                <% }} %>
+        </div>
+
+    </form>
+
+    <% if (formMode == 'showDetails' || formMode == 'edit') { %>
+        <h2><%= __('zawodnik.form.trenowanie') %></h2>
+
+        <table class="table-list">
+            <thead>
+            <tr>
+                <th><%= __('tren.fields.Zawodnik') %></th>
+                <th><%= __('tren.fields.Sztuka') %></th>
+                <th><%= __('tren.fields.DataOd') %></th>
+                <th><%= __('tren.fields.DataDo') %></th>
+                <th><%= __('tren.fields.Oplata') %></th>
+                <th><%= __('tren.fields.Rabat') %></th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <% for (let z of zawodnik.trens) { %>
+                <tr>
+                    <td><%= zawodnik.firstName %></td>
+                    <td><a href="/sztuks/details/<%= z.sztuka._id %>"><%= z.sztuka.nazwaSztuki %></a></td>
+                    <td><%= z.dataPrzyjeciaOd.toISOString().split('T')[0] %></td>
+                    <td><%= z.dataPrzyjeciaDo.toISOString().split('T')[0] %></td>
+                    <td><%= z.oplata %></td>
+                    <td><%= z.rabat %>
+                    <td>
+                </tr>
+            <% } %>
+            </tbody>
+        </table>
+    <% } %>
+
+</main>
+<%- include('../../fragments/footer.ejs') %>
+
