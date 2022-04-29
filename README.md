@@ -11,7 +11,7 @@
 - Now with URL "localhost:3000" in browser we can see the site.
 
 # Description
-- Project use node.js libraries as ORM Sequelize to connect with database. Docker is used to visualisate a mysql database.
+- Project use node.js libraries as ORM Sequelize to connect with database. Docker is used to visualisate mysql database.
 - Database is created based on a small diagram showed below.
 
 ![image](https://user-images.githubusercontent.com/103190671/165916762-2ad433b2-9381-4315-8459-027fa9c7e4ab.png)
